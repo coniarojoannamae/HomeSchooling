@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up - HomeSchooling</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet"> <!-- Optional -->
+    <style>
+        body {
+            background: white;
+        }
+        .signup-box {
+            max-width: 400px;
+            margin: 80px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 0 20px #181d38;
+        }
+        .signup-box h2 {
+            margin-bottom: 30px;
+            color: #06BBCC;
+        }
+        .btn-primary {
+            background-color: #06BBCC;
+            border-color: #06BBCC;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-box">
+        <h2 class="text-center">Sign Up Now!</h2>
+        <form onsubmit="signupUser(event)">
+            <div class="mb-3">
+                <label>Full Name</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+                <label>Email</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label>Password</label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+            <div class="text-center mt-3">
+                <a href="login.html">Already have an account? Login</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function signupUser(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            const user = { name, email, password };
+            localStorage.setItem('user', JSON.stringify(user));
+
+            alert("Account created successfully! Please log in.");
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>
